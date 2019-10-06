@@ -1,10 +1,10 @@
-package com.affine.twitterdemo
+package com.affine.twitter
 
 import java.util.UUID
 
 import akka.actor.ActorSystem
 import akka.stream.{ActorMaterializer, ActorMaterializerSettings}
-import com.affine.TwitterDemo.data._
+import com.affine.Twitter.data._
 import io.surfkit.typebus.bus.TypebusApplication
 import io.surfkit.typebus.bus.testkit._
 import io.surfkit.typebus.client.Client
@@ -15,11 +15,11 @@ import scala.concurrent.duration._
 import scala.concurrent.Future
 import scala.util.Either
 
-class TwitterdemoServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAll {
+class TwitterServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAll {
 
   /*
-  import com.affine.TwitterDemo.data.Implicits._
-  implicit val system = ActorSystem("twitterdemo")
+  import com.affine.Twitter.data.Implicits._
+  implicit val system = ActorSystem("twitter")
   implicit val actorMaterializer = ActorMaterializer(ActorMaterializerSettings(system))
   val userDb = new UserDatabase{
     var state = Map.empty[UUID, User]
@@ -32,12 +32,12 @@ class TwitterdemoServiceSpec extends AsyncWordSpec with Matchers with BeforeAndA
       state.get(x.id).map(Future.successful).getOrElse(Future.failed(new RuntimeException("Can't find that user")))
   }
 
-  lazy val serviceIdentity = ServiceIdentifier("twitterdemo")
+  lazy val serviceIdentity = ServiceIdentifier("twitter")
 
   lazy val producer = new TypebusTestProducer(serviceIdentity, system)
-  //lazy val service = new TwitterdemoService(serviceIdentity, producer, system, userDb)
+  //lazy val service = new TwitterService(serviceIdentity, producer, system, userDb)
 
-  object service extends TwitterdemoService(serviceIdentity, producer, system, userDb){
+  object service extends TwitterService(serviceIdentity, producer, system, userDb){
     // you can mock your own "external" service responses that can target your RPC client
     def handleUser(u: User, meta: EventMeta): Future[Unit] = {
       meta.directReply.foreach{ rpc =>
@@ -60,12 +60,12 @@ class TwitterdemoServiceSpec extends AsyncWordSpec with Matchers with BeforeAndA
     consumer
   )
 
-  class TwitterdemoClient extends Client(serviceIdentity, producer, system){
+  class TwitterClient extends Client(serviceIdentity, producer, system){
     def createUser(x: CreateUserCommand): Future[Either[ServiceException, User]] = wire[CreateUserCommand, User](x)
     def getUser(x: GetUserCommand): Future[Either[ServiceException, User]] = wire[GetUserCommand, User](x)
   }
 
-  val client = new TwitterdemoClient
+  val client = new TwitterClient
 
   override protected def afterAll(): Unit = {
     system.terminate
@@ -73,7 +73,7 @@ class TwitterdemoServiceSpec extends AsyncWordSpec with Matchers with BeforeAndA
 
   val testUser = User(UUID.randomUUID(), "Test User")
 
-  "Twitterdemo service " should {
+  "Twitter service " should {
 
     "create a user" in {
       for{

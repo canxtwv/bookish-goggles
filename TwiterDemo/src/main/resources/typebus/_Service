@@ -1,0 +1,1 @@
+{"methods":[{"in":"com.affine.Twitter.data.AddTwitterStream","out":"com.affine.Twitter.data.TwitterStreamAdded"},{"in":"com.affine.Twitter.data.GetTwitteruserCommand","out":"com.affine.Twitter.data.Twitteruser"}]}

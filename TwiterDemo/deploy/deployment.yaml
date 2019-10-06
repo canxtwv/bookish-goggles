@@ -3,13 +3,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: twitterdemo
-  name: twitterdemo
+    app: twitter
+  name: twitter
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: twitterdemo
+      app: twitter
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -18,14 +18,14 @@ spec:
   template:
     metadata:
       labels:
-        app: twitterdemo
-        actorSystemName: twitterdemo
+        app: twitter
+        actorSystemName: twitter
     spec:
       imagePullSecrets:
         - name: regcred
       containers:
-        - name: twitterdemo
-          image: radiance.azurecr.io/twitterdemo:latest
+        - name: twitter
+          image: radiance.azurecr.io/twitter:latest
           imagePullPolicy: Always
           livenessProbe:
             httpGet:

@@ -1,0 +1,50 @@
+{
+  "symbol" : {
+    "Symbol" : "CaseClass"
+  },
+  "type" : "com.affine.Twitter.data.AddTwitterStream",
+  "members" : {
+    "com.affine.Twitter.data.AddTwitterStream.user" : {
+      "term" : {
+        "_type" : "io.surfkit.typebus.Typebus.Leaf",
+        "type" : "java.lang.String"
+      },
+      "pos" : 0,
+      "hasDefault" : false
+    },
+    "com.affine.Twitter.data.AddTwitterStream.count" : {
+      "term" : {
+        "_type" : "io.surfkit.typebus.Typebus.Leaf",
+        "type" : "scala.Int"
+      },
+      "pos" : 1,
+      "hasDefault" : true,
+      "defaultValue" : "5"
+    }
+  },
+  "baseClasses" : [ {
+    "symbol" : {
+      "Symbol" : "Trait"
+    },
+    "members" : { },
+    "_type" : "io.surfkit.typebus.Typebus.Node",
+    "baseClasses" : [ {
+      "symbol" : {
+        "Symbol" : "Trait"
+      },
+      "members" : { },
+      "_type" : "io.surfkit.typebus.Typebus.Node",
+      "baseClasses" : [ ],
+      "type" : "com.lightbend.lagom.scaladsl.persistence.PersistentEntity.ReplyType"
+    } ],
+    "type" : "com.affine.Twitter.data.TwitteruserCommand"
+  }, {
+    "symbol" : {
+      "Symbol" : "Trait"
+    },
+    "members" : { },
+    "_type" : "io.surfkit.typebus.Typebus.Node",
+    "baseClasses" : [ ],
+    "type" : "com.lightbend.lagom.scaladsl.persistence.PersistentEntity.ReplyType"
+  } ]
+}

@@ -1,0 +1,190 @@
+{
+  "symbol" : {
+    "Symbol" : "CaseClass"
+  },
+  "type" : "com.affine.Twitter.data.Twitteruser",
+  "members" : {
+    "com.affine.Twitter.data.Twitteruser.user" : {
+      "term" : {
+        "_type" : "io.surfkit.typebus.Typebus.Leaf",
+        "type" : "java.lang.String"
+      },
+      "pos" : 0,
+      "hasDefault" : false
+    },
+    "com.affine.Twitter.data.Twitteruser.tweets" : {
+      "term" : {
+        "contains" : {
+          "symbol" : {
+            "Symbol" : "CaseClass"
+          },
+          "members" : {
+            "com.affine.Twitter.data.Tweet.favorited" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "scala.Boolean"
+              },
+              "pos" : 1,
+              "hasDefault" : true,
+              "defaultValue" : "false"
+            },
+            "com.affine.Twitter.data.Tweet.lang" : {
+              "term" : {
+                "contains" : {
+                  "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                  "type" : "java.lang.String"
+                },
+                "_type" : "io.surfkit.typebus.Typebus.MonoContainer",
+                "type" : "scala.Option"
+              },
+              "pos" : 5,
+              "hasDefault" : true,
+              "defaultValue" : "None"
+            },
+            "com.affine.Twitter.data.Tweet.possibly_sensitive" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "scala.Boolean"
+              },
+              "pos" : 6,
+              "hasDefault" : true,
+              "defaultValue" : "false"
+            },
+            "com.affine.Twitter.data.Tweet.text" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "java.lang.String"
+              },
+              "pos" : 13,
+              "hasDefault" : false
+            },
+            "com.affine.Twitter.data.Tweet.filter_level" : {
+              "term" : {
+                "contains" : {
+                  "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                  "type" : "java.lang.String"
+                },
+                "_type" : "io.surfkit.typebus.Typebus.MonoContainer",
+                "type" : "scala.Option"
+              },
+              "pos" : 2,
+              "hasDefault" : true,
+              "defaultValue" : "None"
+            },
+            "com.affine.Twitter.data.Tweet.truncated" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "scala.Boolean"
+              },
+              "pos" : 14,
+              "hasDefault" : true,
+              "defaultValue" : "false"
+            },
+            "com.affine.Twitter.data.Tweet.scopes" : {
+              "term" : {
+                "left" : {
+                  "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                  "type" : "java.lang.String"
+                },
+                "_type" : "io.surfkit.typebus.Typebus.BiContainer",
+                "right" : {
+                  "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                  "type" : "scala.Boolean"
+                },
+                "type" : "scala.collection.immutable.Map"
+              },
+              "pos" : 9,
+              "hasDefault" : true,
+              "defaultValue" : "Map.empty"
+            },
+            "com.affine.Twitter.data.Tweet.id" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "java.lang.String"
+              },
+              "pos" : 3,
+              "hasDefault" : false
+            },
+            "com.affine.Twitter.data.Tweet.retweeted" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "scala.Boolean"
+              },
+              "pos" : 11,
+              "hasDefault" : true,
+              "defaultValue" : "false"
+            },
+            "com.affine.Twitter.data.Tweet.retweet_count" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "scala.Int"
+              },
+              "pos" : 10,
+              "hasDefault" : true,
+              "defaultValue" : "0"
+            },
+            "com.affine.Twitter.data.Tweet.id_str" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "java.lang.String"
+              },
+              "pos" : 4,
+              "hasDefault" : false
+            },
+            "com.affine.Twitter.data.Tweet.source" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "java.lang.String"
+              },
+              "pos" : 12,
+              "hasDefault" : false
+            },
+            "com.affine.Twitter.data.Tweet.favorite_count" : {
+              "term" : {
+                "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                "type" : "scala.Int"
+              },
+              "pos" : 0,
+              "hasDefault" : true,
+              "defaultValue" : "0"
+            },
+            "com.affine.Twitter.data.Tweet.quoted_status_id_str" : {
+              "term" : {
+                "contains" : {
+                  "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                  "type" : "java.lang.String"
+                },
+                "_type" : "io.surfkit.typebus.Typebus.MonoContainer",
+                "type" : "scala.Option"
+              },
+              "pos" : 8,
+              "hasDefault" : true,
+              "defaultValue" : "None"
+            },
+            "com.affine.Twitter.data.Tweet.quoted_status_id" : {
+              "term" : {
+                "contains" : {
+                  "_type" : "io.surfkit.typebus.Typebus.Leaf",
+                  "type" : "java.lang.String"
+                },
+                "_type" : "io.surfkit.typebus.Typebus.MonoContainer",
+                "type" : "scala.Option"
+              },
+              "pos" : 7,
+              "hasDefault" : true,
+              "defaultValue" : "None"
+            }
+          },
+          "_type" : "io.surfkit.typebus.Typebus.Node",
+          "baseClasses" : [ ],
+          "type" : "com.affine.Twitter.data.Tweet"
+        },
+        "_type" : "io.surfkit.typebus.Typebus.MonoContainer",
+        "type" : "scala.collection.Seq"
+      },
+      "pos" : 1,
+      "hasDefault" : false
+    }
+  },
+  "baseClasses" : [ ]
+}

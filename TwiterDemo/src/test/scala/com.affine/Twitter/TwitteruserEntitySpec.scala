@@ -1,16 +1,18 @@
-package com.affine.TwitterDemo
+package com.affine.Twitter
 
 import java.util.UUID
 
 import akka.actor.ActorSystem
 import akka.testkit.TestKit
-import com.affine.TwitterDemo.data._
-import com.affine.TwitterDemo.entity.TwitterdemoEntity
+import com.lightbend.lagom.scaladsl.testkit.PersistentEntityTestDriver
+import com.lightbend.lagom.scaladsl.persistence.PersistentEntity.InvalidCommandException
+import com.affine.Twitter.data._
+import com.affine.Twitter.entity.TwitteruserEntity
 import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpec}
 
-class TwitterdemoEntitySpec extends WordSpec with Matchers with BeforeAndAfterAll {
+class TwitteruserEntitySpec extends WordSpec with Matchers with BeforeAndAfterAll {
 
-  private val system = ActorSystem("twitterdemo")
+  private val system = ActorSystem("twitter")
 
   override protected def afterAll(): Unit = {
     TestKit.shutdownActorSystem(system)
@@ -18,11 +20,13 @@ class TwitterdemoEntitySpec extends WordSpec with Matchers with BeforeAndAfterAl
   }
 
   val userId = UUID.randomUUID()
+  val driver = new PersistentEntityTestDriver(system, new TwitteruserEntity, userId.toString)
 
   val userNotFound = UUID.randomUUID()
+  val notFoundDrive = new PersistentEntityTestDriver(system, new TwitteruserEntity, userNotFound.toString)
 
 
-  val someTwitterdemo = Twitterdemo(
+  val someTwitteruser = Twitteruser(
     id = userId,
     data = "Some Name"
   )

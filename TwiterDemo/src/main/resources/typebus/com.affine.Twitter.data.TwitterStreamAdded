@@ -1,0 +1,33 @@
+{
+  "symbol" : {
+    "Symbol" : "CaseClass"
+  },
+  "type" : "com.affine.Twitter.data.TwitterStreamAdded",
+  "members" : {
+    "com.affine.Twitter.data.TwitterStreamAdded.user" : {
+      "term" : {
+        "_type" : "io.surfkit.typebus.Typebus.Leaf",
+        "type" : "java.lang.String"
+      },
+      "pos" : 0,
+      "hasDefault" : false
+    },
+    "com.affine.Twitter.data.TwitterStreamAdded.count" : {
+      "term" : {
+        "_type" : "io.surfkit.typebus.Typebus.Leaf",
+        "type" : "scala.Int"
+      },
+      "pos" : 1,
+      "hasDefault" : false
+    }
+  },
+  "baseClasses" : [ {
+    "symbol" : {
+      "Symbol" : "Trait"
+    },
+    "members" : { },
+    "_type" : "io.surfkit.typebus.Typebus.Node",
+    "baseClasses" : [ ],
+    "type" : "com.affine.Twitter.data.TwitteruserEvent"
+  } ]
+}
